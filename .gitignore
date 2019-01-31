@@ -1,0 +1,5 @@
+# IntelliJ IDEA project descriptors and artifacts
+.idea
+*.iml
+
+.gradle
