@@ -1,7 +1,7 @@
 /*
 Copyright Paul James Mutton, 2001-2004, http://www.jibble.org/
 
-This file is part of Mini Wegb Server / SimpleWebServer.
+This file is part of Mini Wegb ReceiveMail / SimpleWebServer.
 
 This software is dual-licensed, allowing you to choose between the GNU
 General Public License (GPL) and the www.jibble.org Commercial License.
@@ -55,7 +55,7 @@ public class SimpleWebServer extends Thread {
         while (_running) {
             try {
                 Socket socket = _serverSocket.accept();
-                RequestThread requestThread = new RequestThread(socket, _rootDir);
+                org.jibble.simplewebserver.RequestThread requestThread = new org.jibble.simplewebserver.RequestThread(socket, _rootDir);
                 requestThread.start();
             }
             catch (IOException e) {

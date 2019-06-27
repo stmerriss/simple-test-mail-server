@@ -1,4 +1,4 @@
-package com.liferay.simple.test.mail.server.smtp;
+package com.simple.test.mail.server.smtp;
 
 import com.dumbster.smtp.*;
 import java.lang.*;
@@ -14,17 +14,17 @@ public class SmtpServer {
 
 	public void start() {
 		server = SimpleSmtpServer.start(SMTP_PORT);
-		System.out.println("Server has started on port: " + SMTP_PORT);
+		System.out.println("ReceiveMail has started on port: " + SMTP_PORT);
 	}
 
 	public void run() {
 		server.run();
-		System.out.print("Server is running! (party)");
+		System.out.print("ReceiveMail is running! (party)");
 	}
 
 	public void stop() {
 		server.stop();
-		System.out.println("Server has been stopped.");
+		System.out.println("ReceiveMail has been stopped.");
 	}
 
 	public Iterator getMessagesAsItr() {

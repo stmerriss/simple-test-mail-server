@@ -1,7 +1,7 @@
 /* 
 Copyright Paul James Mutton, 2001-2004, http://www.jibble.org/
 
-This file is part of Mini Wegb Server / SimpleWebServer.
+This file is part of Mini Wegb ReceiveMail / SimpleWebServer.
 
 This software is dual-licensed, allowing you to choose between the GNU
 General Public License (GPL) and the www.jibble.org Commercial License.
@@ -35,7 +35,7 @@ public class RequestThread extends Thread {
     private static void sendHeader(BufferedOutputStream out, int code, String contentType, long contentLength, long lastModified) throws IOException {
         out.write(("HTTP/1.0 " + code + " OK\r\n" + 
                    "Date: " + new Date().toString() + "\r\n" +
-                   "Server: JibbleWebServer/1.0\r\n" +
+                   "ReceiveMail: JibbleWebServer/1.0\r\n" +
                    "Content-Type: " + contentType + "\r\n" +
                    "Expires: Thu, 01 Dec 1994 16:00:00 GMT\r\n" +
                    ((contentLength != -1) ? "Content-Length: " + contentLength + "\r\n" : "") +
@@ -44,7 +44,7 @@ public class RequestThread extends Thread {
     }
     
     private static void sendError(BufferedOutputStream out, int code, String message) throws IOException {
-        message = message + "<hr>" + SimpleWebServer.VERSION;
+        message = message + "<hr>" + org.jibble.simplewebserver.SimpleWebServer.VERSION;
         sendHeader(out, code, "text/html", message.length(), System.currentTimeMillis());
         out.write(message.getBytes());
         out.flush();
@@ -102,12 +102,12 @@ public class RequestThread extends Thread {
                     }
                     out.write(("<a href=\"" + path + filename + "\">" + filename + "</a> " + description + "<br>\n").getBytes());
                 }
-                out.write(("</p><hr><p>" + SimpleWebServer.VERSION + "</p></body><html>").getBytes());
+                out.write(("</p><hr><p>" + org.jibble.simplewebserver.SimpleWebServer.VERSION + "</p></body><html>").getBytes());
             }
             else {
                 reader = new BufferedInputStream(new FileInputStream(file));
             
-                String contentType = (String)SimpleWebServer.MIME_TYPES.get(SimpleWebServer.getExtension(file));
+                String contentType = (String) org.jibble.simplewebserver.SimpleWebServer.MIME_TYPES.get(org.jibble.simplewebserver.SimpleWebServer.getExtension(file));
                 if (contentType == null) {
                     contentType = "application/octet-stream";
                 }

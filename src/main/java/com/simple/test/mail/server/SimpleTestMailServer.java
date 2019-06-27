@@ -1,6 +1,6 @@
-package com.liferay.simple.test.mail.server;
+package com.simple.test.mail.server;
 
-import com.liferay.simple.test.mail.server.smtp.SmtpServer;
+import com.simple.test.mail.server.smtp.SmtpServer;
 import java.util.Iterator;
 import org.jibble.simplewebserver.*;
 import java.io.File;
@@ -12,7 +12,7 @@ public class SimpleTestMailServer {
 	private static SimpleWebServer server_http;
 
 	public static void main(String[] args) {
-		System.out.println("Simmple Test Mail Server has started!");
+		System.out.println("Simmple Test Mail ReceiveMail has started!");
 
 		try{
 		  SimpleWebServer server_http = new SimpleWebServer(new File("./"), 8181);

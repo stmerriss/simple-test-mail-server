@@ -1,4 +1,4 @@
-package com.liferay.simple.test.mail.server;
+package com.simple.test.mail.server;
 
 import com.liferay.simple.test.mail.server.smtp.SmtpServer;
 import java.util.Map;
